@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<!-- Hero section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">techkurejai ~ blog</span>
+      </div>
+      <div class="terminal-body">
+        <p class="terminal-line"><span class="prompt">$</span> <span class="cmd typed-text"></span><span class="cursor">▊</span></p>
+        <p class="terminal-output">// Practical knowledge for developers who build things</p>
+        <p class="terminal-output success">✓ No fluff. No padding. Just craft.</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">{{ site.posts | size }}</span>
+        <span class="stat-label">Posts</span>
+      </div>
+      <div class="stat">
+        {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
+        <span class="stat-num">{{ all_cats | size }}</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat">
+        {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
+        <span class="stat-num">{{ all_tags | size }}</span>
+        <span class="stat-label">Tags</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Category filter bar -->
+<section class="filter-bar">
+  <div class="filter-wrap">
+    <button class="filter-btn active" data-filter="all">
+      <i class="fa-solid fa-border-all"></i> All
+    </button>
+    {% assign cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+    {% for cat in cats %}
+    <button class="filter-btn" data-filter="{{ cat | downcase }}">
+      <i class="fa-solid fa-tag"></i> {{ cat }}
+    </button>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Posts grid -->
+<section class="posts-section">
+  <div class="section-header">
+    <h2 class="section-title"><i class="fa-solid fa-fire-flame-curved"></i> Latest Posts</h2>
+    <span class="post-count">{{ site.posts | size }} articles</span>
+  </div>
+
+  <div class="posts-grid" id="posts-grid">
+    {% for post in site.posts %}
+    {% assign cats_str = post.categories | join: ' ' | downcase %}
+    <article class="post-card" data-categories="{{ cats_str }}">
+      <div class="post-card-inner">
+        <div class="post-card-header">
+          <div class="post-cats">
+            {% for cat in post.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ cat | downcase | replace: ' ', '-' }}/" class="cat-badge cat-{{ cat | downcase }}">{{ cat }}</a>
+            {% endfor %}
+          </div>
+          <div class="post-meta-top">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <span class="reading-time"><i class="fa-regular fa-clock"></i> {{ post.reading_time | default: "5" }} min read</span>
+          </div>
+        </div>
+
+        <h2 class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+
+        <div class="post-card-footer">
+          <div class="post-tags">
+            {% for tag in post.tags limit: 3 %}
+            <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+          <a href="{{ post.url | relative_url }}" class="read-more-btn">
+            Read <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="post-card-glow"></div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

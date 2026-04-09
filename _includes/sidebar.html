@@ -1,0 +1,119 @@
+<aside class="sidebar" id="sidebar" aria-label="Sidebar">
+  <!-- Sidebar toggle (mobile) -->
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-expanded="false" aria-controls="sidebar-inner">
+    <i class="fa-solid fa-chevron-left" id="sidebar-toggle-icon"></i>
+  </button>
+
+  <div class="sidebar-inner" id="sidebar-inner">
+
+    <!-- Author card -->
+    <div class="sidebar-widget author-widget">
+      <div class="author-card">
+        <div class="author-avatar-wrap">
+          <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="sidebar-avatar" loading="lazy" />
+          <div class="avatar-ring"></div>
+          <div class="online-dot" title="Active"></div>
+        </div>
+        <div class="author-details">
+          <h3 class="author-name-sidebar">{{ site.author.name }}</h3>
+          <p class="author-bio">{{ site.author.bio }}</p>
+          <a href="https://github.com/{{ site.author.github }}" class="github-btn" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> @{{ site.author.github }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest posts -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">
+        <i class="fa-solid fa-fire"></i> Latest Posts
+      </h3>
+      <ul class="latest-posts-list">
+        {% for post in site.posts limit: 5 %}
+        <li class="latest-post-item">
+          <a href="{{ post.url | relative_url }}" class="latest-post-link">
+            <div class="latest-post-date">{{ post.date | date: "%b %d" }}</div>
+            <div class="latest-post-title">{{ post.title | strip_html | truncate: 55 }}</div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">
+        <i class="fa-solid fa-layer-group"></i> Categories
+      </h3>
+      <ul class="categories-list">
+        {% assign cats_with_count = site.posts | map: 'categories' | join: ',' | split: ',' %}
+        {% assign unique_cats = cats_with_count | uniq | sort %}
+        {% for cat in unique_cats %}
+        {% assign cat_count = 0 %}
+        {% for post in site.posts %}
+          {% if post.categories contains cat %}
+            {% assign cat_count = cat_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        <li class="category-item">
+          <a href="{{ site.baseurl }}/categories/{{ cat | downcase | replace: ' ', '-' }}/" class="category-link">
+            <span class="cat-name">
+              <span class="cat-dot cat-{{ cat | downcase }}"></span>
+              {{ cat }}
+            </span>
+            <span class="cat-count">{{ cat_count }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Tag cloud -->
+    <div class="sidebar-widget">
+      <h3 class="widget-title">
+        <i class="fa-solid fa-cloud"></i> Tag Cloud
+      </h3>
+      <div class="tag-cloud">
+        {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+        {% for tag in all_tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-cloud-item">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Mini stats -->
+    <div class="sidebar-widget stats-widget">
+      <h3 class="widget-title">
+        <i class="fa-solid fa-chart-bar"></i> Blog Stats
+      </h3>
+      <div class="mini-stats">
+        <div class="mini-stat">
+          <i class="fa-solid fa-file-lines"></i>
+          <span class="mini-stat-num">{{ site.posts | size }}</span>
+          <span class="mini-stat-label">Posts</span>
+        </div>
+        <div class="mini-stat">
+          <i class="fa-solid fa-folder"></i>
+          {% assign all_cats_u = site.posts | map: 'categories' | join: ',' | split: ',' | uniq %}
+          <span class="mini-stat-num">{{ all_cats_u | size }}</span>
+          <span class="mini-stat-label">Categories</span>
+        </div>
+        <div class="mini-stat">
+          <i class="fa-solid fa-hashtag"></i>
+          {% assign all_tags_u = site.posts | map: 'tags' | join: ',' | split: ',' | uniq %}
+          <span class="mini-stat-num">{{ all_tags_u | size }}</span>
+          <span class="mini-stat-label">Tags</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RSS link -->
+    <div class="sidebar-widget rss-widget">
+      <a href="{{ '/feed.xml' | relative_url }}" class="rss-btn" target="_blank" rel="noopener">
+        <i class="fa-solid fa-rss"></i> Subscribe via RSS
+      </a>
+    </div>
+
+  </div>
+</aside>
