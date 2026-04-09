@@ -83,7 +83,7 @@ layout: default
         <div class="post-card-footer">
           <div class="post-tags">
             {% for tag in post.tags limit: 3 %}
-            <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">#{{ tag }}</a>
+            <a href="{{ site.baseurl }}/tags/#{{ tag | prepend: '' | slugify }}" class="tag-pill">#{{ tag }}</a>
             {% endfor %}
           </div>
           <a href="{{ post.url | relative_url }}" class="read-more-btn">
