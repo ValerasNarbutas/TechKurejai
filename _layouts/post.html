@@ -62,7 +62,7 @@ layout: default
   <div class="post-tags-section">
     <i class="fa-solid fa-tags"></i>
     {% for tag in page.tags %}
-    <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag-pill">#{{ tag }}</a>
+    <a href="{{ site.baseurl }}/tags/#{{ tag | prepend: '' | slugify }}" class="tag-pill">#{{ tag }}</a>
     {% endfor %}
   </div>
   {% endif %}
