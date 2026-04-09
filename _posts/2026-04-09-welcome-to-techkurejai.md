@@ -1,6 +1,15 @@
+---
+layout: post
+title: "👋 Welcome to TechKurejai"
+date: 2026-04-09
+categories: [meta, intro]
+author: Valeras Narbutas
+excerpt: "TechKurejai is a blog about technology, written in Git. Practical knowledge for developers who actually build things."
+---
+
 # 👋 Welcome to TechKurejai
 
-> **Date:** 2026-04-09 · **Author:** [@ValerasNarbutas](https://github.com/ValerasNarbutas) · **Tags:** `meta` `intro` · **Reading time:** ~2 min
+> **Author:** [@ValerasNarbutas](https://github.com/ValerasNarbutas) · **Tags:** `meta` `intro` · **Reading time:** ~2 min
 
 ---
 
@@ -45,4 +54,4 @@ Want to contribute? See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ---
 
-[← Back to homepage](../README.md)
+[← Back to homepage](../index.md)

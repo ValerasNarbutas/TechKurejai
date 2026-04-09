@@ -21,9 +21,9 @@
 
 | # | Title | Date | Tags | Reading Time |
 |---|-------|------|------|-------------|
-| 3 | [🔧 Git Tips Every Developer Should Know](posts/2026-04-09-git-tips-for-developers.md) | 2026-04-09 | `git` `productivity` | 5 min |
-| 2 | [⚡ Top Developer Tools in 2026](posts/2026-04-09-top-dev-tools-2026.md) | 2026-04-09 | `tools` `dx` `2026` | 7 min |
-| 1 | [👋 Welcome to TechKurejai](posts/2026-04-09-welcome-to-techkurejai.md) | 2026-04-09 | `meta` `intro` | 2 min |
+| 3 | [🔧 Git Tips Every Developer Should Know](_posts/2026-04-09-git-tips-for-developers.md) | 2026-04-09 | `git` `productivity` | 5 min |
+| 2 | [⚡ Top Developer Tools in 2026](_posts/2026-04-09-top-dev-tools-2026.md) | 2026-04-09 | `tools` `dx` `2026` | 7 min |
+| 1 | [👋 Welcome to TechKurejai](_posts/2026-04-09-welcome-to-techkurejai.md) | 2026-04-09 | `meta` `intro` | 2 min |
 
 ---
 

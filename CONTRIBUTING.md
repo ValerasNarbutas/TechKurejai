@@ -13,22 +13,31 @@ git checkout -b post/your-post-title
 
 ### 2. Create Your Post File
 
-Add a file in the `posts/` directory using this naming convention:
+Add a file in the `_posts/` directory using this naming convention:
 
 ```
-posts/YYYY-MM-DD-your-post-slug.md
+_posts/YYYY-MM-DD-your-post-slug.md
 ```
 
-**Example:** `posts/2026-05-15-understanding-docker-networking.md`
+**Example:** `_posts/2026-05-15-understanding-docker-networking.md`
 
 ### 3. Use the Post Template
 
-Start your post with this header block:
+Start your post with this front matter block, then the content:
 
 ```markdown
+---
+layout: post
+title: "Your Post Title Here"
+date: YYYY-MM-DD
+categories: [tag1, tag2]
+author: Your Name
+excerpt: "One sentence summary of the post."
+---
+
 # 🔖 Your Post Title Here
 
-> **Date:** YYYY-MM-DD · **Author:** [@yourhandle](https://github.com/yourhandle) · **Tags:** `tag1` `tag2` · **Reading time:** ~X min
+> **Author:** [@yourhandle](https://github.com/yourhandle) · **Tags:** `tag1` `tag2` · **Reading time:** ~X min
 
 ---
 
@@ -36,7 +45,7 @@ Your content here...
 
 ---
 
-[← Back to homepage](../README.md)
+[← Back to homepage](../index.md)
 ```
 
 ### 4. Writing Guidelines
@@ -69,6 +78,7 @@ Push your branch and open a PR with:
 
 | Part | Format | Example |
 |------|--------|---------|
+| Directory | `_posts/` | — |
 | Date | `YYYY-MM-DD` | `2026-05-15` |
 | Separator | `-` | — |
 | Slug | lowercase, hyphens | `docker-networking-explained` |

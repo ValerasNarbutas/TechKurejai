@@ -1,6 +1,15 @@
+---
+layout: post
+title: "🔧 Git Tips Every Developer Should Know"
+date: 2026-04-09
+categories: [git, productivity]
+author: Valeras Narbutas
+excerpt: "Git is the one tool every developer uses daily, yet most only use 10% of it. These are the tips that actually matter."
+---
+
 # 🔧 Git Tips Every Developer Should Know
 
-> **Date:** 2026-04-09 · **Author:** [@ValerasNarbutas](https://github.com/ValerasNarbutas) · **Tags:** `git` `productivity` · **Reading time:** ~5 min
+> **Author:** [@ValerasNarbutas](https://github.com/ValerasNarbutas) · **Tags:** `git` `productivity` · **Reading time:** ~5 min
 
 ---
 
@@ -153,4 +162,4 @@ Git rewards investment. The more you learn it, the less time you spend fighting 
 
 ---
 
-[← Back to homepage](../README.md)
+[← Back to homepage](../index.md)
