@@ -1,0 +1,161 @@
+// ─── RESET & BASE ───────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// ─── SCROLLBAR ───────────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+// ─── TYPOGRAPHY ─────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p { margin-bottom: 1.2em; color: var(--text-secondary); }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover { color: var(--accent-hover); }
+}
+
+code, pre {
+  font-family: $font-mono;
+  font-size: 0.875rem;
+}
+
+code {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  color: var(--cyan);
+}
+
+pre {
+  background: var(--bg-terminal) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 18px 0 0 var(--yellow), 36px 0 0 var(--green);
+    margin-bottom: 1rem;
+  }
+
+  code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+  }
+}
+
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5em 0;
+  background: var(--bg-code);
+  border-radius: 0 8px 8px 0;
+  p { color: var(--text-secondary); margin: 0; font-style: italic; }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9rem;
+
+  th {
+    background: var(--bg-code);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-bright);
+    color: var(--text-heading);
+  }
+
+  td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  tr:hover td { background: var(--bg-card-hover); }
+}
+
+ul, ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.2em;
+  li {
+    margin-bottom: 0.4em;
+    color: var(--text-secondary);
+  }
+}
+
+img { max-width: 100%; border-radius: 8px; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+// ─── SELECTION ─────────────────────────────────────────────────────────────
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+// ─── FOCUS ──────────────────────────────────────────────────────────────────
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+// ─── KBD ────────────────────────────────────────────────────────────────────
+kbd {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  background: var(--bg-code);
+  border: 1px solid var(--border-bright);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  box-shadow: 0 1px 0 var(--border-bright);
+}

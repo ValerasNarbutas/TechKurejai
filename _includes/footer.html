@@ -1,0 +1,47 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="{{ site.baseurl }}/" class="footer-logo">
+        <span class="brand-bracket">[</span><span class="brand-slash">/</span><span class="brand-bracket">]</span>
+        TechKurejai
+      </a>
+      <p class="footer-desc">{{ site.description }}</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        {% for link in site.nav_links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        {% assign footer_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+        {% for cat in footer_cats limit: 6 %}
+        <a href="{{ site.baseurl }}/categories/{{ cat | downcase | replace: ' ', '-' }}/">{{ cat }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener">
+          <i class="fa-solid fa-rss"></i> RSS Feed
+        </a>
+        <a href="{{ site.baseurl }}/about/">
+          <i class="fa-solid fa-user"></i> About
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>Built with <i class="fa-solid fa-heart" style="color:#ff6b6b"></i> in Git by <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">{{ site.author.name }}</a></span>
+    <span class="footer-sep">·</span>
+    <span>Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a></span>
+    <span class="footer-sep">·</span>
+    <a href="https://github.com/ValerasNarbutas/TechKurejai" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> View source</a>
+  </div>
+</footer>

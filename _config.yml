@@ -6,16 +6,11 @@ description: >-
 baseurl: "/TechKurejai"
 url: "https://valerasnarbutas.github.io"
 
-theme: minima
-
 author:
   name: Valeras Narbutas
   github: ValerasNarbutas
-
-minima:
-  date_format: "%B %-d, %Y"
-  social_links:
-    - { platform: github, user_url: "https://github.com/ValerasNarbutas" }
+  bio: "Developer, builder, open source enthusiast. Writes about tools that actually matter."
+  avatar: "https://github.com/ValerasNarbutas.png"
 
 show_excerpts: true
 
@@ -25,9 +20,23 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+sass:
+  sass_dir: _sass
+  style: compressed
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+nav_links:
+  - title: Home
+    url: /TechKurejai/
+  - title: Categories
+    url: /TechKurejai/categories/
+  - title: Tags
+    url: /TechKurejai/tags/
+  - title: About
+    url: /TechKurejai/about/
 
 exclude:
   - CONTRIBUTING.md

@@ -1,0 +1,35 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+hide_sidebar: false
+---
+
+<div class="archive-page">
+  <header class="archive-header">
+    <h1 class="archive-title">
+      <i class="fa-solid fa-layer-group" style="color:var(--accent)"></i> Categories
+    </h1>
+    {% assign all_cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+    <p class="archive-count">{{ all_cats | size }} categories across {{ site.posts | size }} posts</p>
+  </header>
+
+  {% for cat in all_cats %}
+  {% assign cat_posts = site.posts | where_exp: "p", "p.categories contains cat" %}
+  <section class="tag-section" id="{{ cat | slugify }}">
+    <h2 class="tag-section-title">
+      <span class="cat-dot cat-{{ cat | downcase }}"></span>
+      <a href="{{ site.baseurl }}/categories/{{ cat | downcase | replace: ' ', '-' }}/" class="cat-badge cat-{{ cat | downcase }}">{{ cat }}</a>
+      <span>{{ cat_posts | size }} post{% if cat_posts.size != 1 %}s{% endif %}</span>
+    </h2>
+    <ul class="archive-list">
+      {% for post in cat_posts %}
+      <li class="archive-item">
+        <span class="archive-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}" class="archive-item-link">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>

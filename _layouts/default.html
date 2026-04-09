@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+  {% seo %}
+  <link type="application/atom+xml" rel="alternate" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title }}" />
+</head>
+<body>
+  <!-- Reading progress bar -->
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <!-- Matrix rain canvas (decorative) -->
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating particles -->
+  <div id="particles" aria-hidden="true"></div>
+
+  {% include header.html %}
+
+  <div class="site-wrapper">
+    <main class="main-content" id="main-content">
+      {{ content }}
+    </main>
+
+    {% unless page.hide_sidebar %}
+    {% include sidebar.html %}
+    {% endunless %}
+  </div>
+
+  {% include footer.html %}
+
+  <!-- Search overlay -->
+  <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Search" hidden>
+    <div class="search-box">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Search posts, tags, categories..." autocomplete="off" spellcheck="false" />
+        <kbd>ESC</kbd>
+      </div>
+      <div id="search-results" class="search-results"></div>
+      <div class="search-hint">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> open</span>
+        <span><kbd>ESC</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post data for search -->
+  <script>
+    window.SITE_DATA = {
+      baseurl: "{{ site.baseurl }}",
+      posts: [
+        {% for post in site.posts %}
+        {
+          title: {{ post.title | jsonify }},
+          url: "{{ post.url | relative_url }}",
+          excerpt: {{ post.excerpt | strip_html | truncate: 200 | jsonify }},
+          categories: {{ post.categories | jsonify }},
+          tags: {{ post.tags | jsonify }},
+          date: "{{ post.date | date: '%B %-d, %Y' }}",
+          reading_time: "{{ post.reading_time | default: '5' }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    };
+  </script>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

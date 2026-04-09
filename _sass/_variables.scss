@@ -1,0 +1,106 @@
+// ─── DARK THEME (default) ───────────────────────────────────────────────────
+:root,
+[data-theme="dark"] {
+  --bg-primary:      #0a0e1a;
+  --bg-secondary:    #0f1426;
+  --bg-card:         #111827;
+  --bg-card-hover:   #161f35;
+  --bg-sidebar:      #0d1220;
+  --bg-header:       rgba(10, 14, 26, 0.85);
+  --bg-overlay:      rgba(0, 0, 0, 0.85);
+  --bg-code:         #1a2035;
+  --bg-terminal:     #0d1117;
+
+  --border:          rgba(99, 179, 237, 0.12);
+  --border-bright:   rgba(99, 179, 237, 0.3);
+
+  --text-primary:    #e2e8f0;
+  --text-secondary:  #94a3b8;
+  --text-muted:      #4a5568;
+  --text-heading:    #f1f5f9;
+
+  --accent:          #63b3ed;
+  --accent-hover:    #90cdf4;
+  --accent-glow:     rgba(99, 179, 237, 0.2);
+  --green:           #68d391;
+  --green-glow:      rgba(104, 211, 145, 0.2);
+  --yellow:          #f6e05e;
+  --red:             #fc8181;
+  --purple:          #b794f4;
+  --pink:            #f687b3;
+  --orange:          #f6ad55;
+  --cyan:            #76e4f7;
+
+  --shadow-sm:       0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:       0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg:       0 8px 40px rgba(0,0,0,0.6);
+  --shadow-glow:     0 0 30px rgba(99, 179, 237, 0.15);
+
+  --scrollbar-thumb: #2d3748;
+  --scrollbar-track: #1a202c;
+}
+
+// ─── LIGHT THEME ────────────────────────────────────────────────────────────
+[data-theme="light"] {
+  --bg-primary:      #f7f9fc;
+  --bg-secondary:    #eef2f7;
+  --bg-card:         #ffffff;
+  --bg-card-hover:   #f0f6ff;
+  --bg-sidebar:      #f0f4f9;
+  --bg-header:       rgba(247, 249, 252, 0.9);
+  --bg-overlay:      rgba(255, 255, 255, 0.92);
+  --bg-code:         #f1f5f9;
+  --bg-terminal:     #1a1f2e;
+
+  --border:          rgba(59, 130, 246, 0.15);
+  --border-bright:   rgba(59, 130, 246, 0.4);
+
+  --text-primary:    #1e293b;
+  --text-secondary:  #475569;
+  --text-muted:      #94a3b8;
+  --text-heading:    #0f172a;
+
+  --accent:          #2563eb;
+  --accent-hover:    #1d4ed8;
+  --accent-glow:     rgba(37, 99, 235, 0.15);
+  --green:           #16a34a;
+  --green-glow:      rgba(22, 163, 74, 0.15);
+  --yellow:          #ca8a04;
+  --red:             #dc2626;
+  --purple:          #7c3aed;
+  --pink:            #db2777;
+  --orange:          #ea580c;
+  --cyan:            #0891b2;
+
+  --shadow-sm:       0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md:       0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg:       0 8px 40px rgba(0,0,0,0.15);
+  --shadow-glow:     0 0 30px rgba(37, 99, 235, 0.1);
+
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #e2e8f0;
+}
+
+// ─── TYPOGRAPHY ─────────────────────────────────────────────────────────────
+$font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+$font-mono:  'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+// ─── LAYOUT ─────────────────────────────────────────────────────────────────
+$header-h:      64px;
+$sidebar-w:     300px;
+$content-max:   740px;
+$breakpoint-md: 900px;
+$breakpoint-sm: 640px;
+
+// ─── CATEGORY COLORS ────────────────────────────────────────────────────────
+$cat-colors: (
+  'git':          (#ff6b6b, rgba(255, 107, 107, 0.15)),
+  'tools':        (#ffd93d, rgba(255, 217, 61, 0.15)),
+  'dx':           (#6bcb77, rgba(107, 203, 119, 0.15)),
+  'productivity': (#4d96ff, rgba(77, 150, 255, 0.15)),
+  'meta':         (#c77dff, rgba(199, 125, 255, 0.15)),
+  'intro':        (#ff9f43, rgba(255, 159, 67, 0.15)),
+  'architecture': (#00d2ff, rgba(0, 210, 255, 0.15)),
+  'ai':           (#f9ca24, rgba(249, 202, 36, 0.15)),
+  'opensource':   (#6ab04c, rgba(106, 176, 76, 0.15)),
+);

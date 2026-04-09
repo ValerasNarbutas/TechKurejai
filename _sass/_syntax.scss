@@ -1,0 +1,54 @@
+// ─── SYNTAX HIGHLIGHTING (dark) ─────────────────────────────────────────────
+.highlight {
+  background: var(--bg-terminal) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: auto;
+  position: relative;
+
+  pre { margin: 0; border: none; background: transparent !important; border-radius: 0; }
+
+  .hll { background-color: #3d4450; }
+  .c   { color: #586e75; font-style: italic; } // comment
+  .k   { color: #cb4b16; font-weight: bold; }  // keyword
+  .o   { color: #93a1a1; }                      // operator
+  .cm  { color: #586e75; font-style: italic; }  // comment.multiline
+  .cp  { color: #586e75; }
+  .c1  { color: #586e75; font-style: italic; }
+  .n   { color: #93a1a1; }                      // name
+  .na  { color: #268bd2; }                      // name.attribute
+  .nb  { color: #268bd2; }
+  .nc  { color: #268bd2; }
+  .nf  { color: #268bd2; }                      // name.function
+  .nt  { color: #268bd2; }
+  .s   { color: #2aa198; }                      // string
+  .s1  { color: #2aa198; }
+  .s2  { color: #2aa198; }
+  .si  { color: #2aa198; }
+  .sr  { color: #2aa198; }
+  .m   { color: #d33682; }                      // literal.number
+  .mi  { color: #d33682; }
+  .mf  { color: #d33682; }
+  .kn  { color: #859900; font-weight: bold; }   // keyword.namespace
+  .kd  { color: #cb4b16; font-weight: bold; }
+  .kr  { color: #cb4b16; font-weight: bold; }
+  .kt  { color: #dc322f; }                      // keyword.type
+  .bp  { color: #268bd2; }
+  .p   { color: #93a1a1; }
+  .ow  { color: #859900; }
+  .nx  { color: #93a1a1; }
+  .py  { color: #268bd2; }
+  .nd  { color: #6c71c4; }
+  .ni  { color: #93a1a1; }
+  .ne  { color: #dc322f; }
+  .nv  { color: #93a1a1; }
+  .vc  { color: #93a1a1; }
+  .vg  { color: #268bd2; }
+  .vi  { color: #268bd2; }
+  .il  { color: #d33682; }
+  .err { color: #dc322f; background: none; }
+  .gd  { color: #dc322f; }
+  .gi  { color: #859900; }
+  .gh  { color: #268bd2; font-weight: bold; }
+  .gu  { color: #93a1a1; font-weight: bold; }
+}

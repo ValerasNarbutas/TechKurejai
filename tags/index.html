@@ -1,0 +1,43 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+hide_sidebar: false
+---
+
+<div class="archive-page">
+  <header class="archive-header">
+    <h1 class="archive-title">
+      <i class="fa-solid fa-tags" style="color:var(--accent)"></i> Tags
+    </h1>
+    {% assign all_tags = site.posts | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+    <p class="archive-count">{{ all_tags | size }} tags</p>
+    <div class="tag-cloud" style="margin-top:1rem">
+      {% for tag in all_tags %}
+      <a href="#{{ tag | slugify }}" class="tag-cloud-item">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </header>
+
+  {% for tag in all_tags %}
+  {% assign tag_posts = site.posts | where_exp: "p", "p.tags contains tag" %}
+  <section class="tag-section" id="{{ tag | slugify }}">
+    <h2 class="tag-section-title">
+      <i class="fa-solid fa-hashtag" style="color:var(--accent);font-size:0.85em"></i>
+      {{ tag }}
+      <span>{{ tag_posts | size }} post{% if tag_posts.size != 1 %}s{% endif %}</span>
+    </h2>
+    <ul class="archive-list">
+      {% for post in tag_posts %}
+      <li class="archive-item">
+        <span class="archive-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}" class="archive-item-link">{{ post.title }}</a>
+        {% for cat in post.categories limit: 1 %}
+        <span class="cat-badge cat-{{ cat | downcase }}">{{ cat }}</span>
+        {% endfor %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
