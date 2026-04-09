@@ -784,7 +784,7 @@
   border-radius: 10px;
   overflow: hidden;
   position: sticky;
-  top: $header-h + 1rem;
+  top: calc(#{$header-h} + 1rem);
 
   @media (max-width: 900px) {
     float: none;
@@ -831,7 +831,7 @@
 // ─── POST CONTENT ────────────────────────────────────────────────────────────
 .post-content {
   h2, h3, h4 {
-    scroll-margin-top: $header-h + 1rem;
+    scroll-margin-top: calc(#{$header-h} + 1rem);
     position: relative;
 
     &::before {
@@ -1056,7 +1056,7 @@
 .archive-count { font-size: 0.8rem; color: var(--text-muted); font-family: $font-mono; }
 
 // tags page
-.tag-section { margin-bottom: 3rem; scroll-margin-top: $header-h + 1rem; }
+.tag-section { margin-bottom: 3rem; scroll-margin-top: calc(#{$header-h} + 1rem); }
 .tag-section-title {
   display: flex; align-items: center; gap: 0.5rem;
   font-size: 1.1rem; margin-bottom: 1rem;
