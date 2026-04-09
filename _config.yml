@@ -3,8 +3,8 @@ description: >-
   Practical articles, tools, and tips for developers who build things.
   No fluff — just craft.
 
-baseurl: ""
-url: "https://valerasnarbutas.github.io/TechKurejai"
+baseurl: "/TechKurejai"
+url: "https://valerasnarbutas.github.io"
 
 theme: minima
 
